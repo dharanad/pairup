@@ -1,1 +1,0 @@
-aws ecr-public create-repository --repository-name dharanad/pairup --region us-east-1
