@@ -1,0 +1,49 @@
+{
+  "containerDefinitions": [
+    {
+      "name": "pairup-api",
+      "image": "public.ecr.aws/n3u9i6k4/dharanad/pairup:latest",
+      "cpu": 512,
+      "memory": 1024,
+      "portMappings": [
+        {
+          "name": "pairup-api-8080-tcp",
+          "containerPort": 80,
+          "hostPort": 80,
+          "protocol": "tcp",
+          "appProtocol": "http"
+        }
+      ],
+      "essential": true,
+      "environment": [],
+      "environmentFiles": [],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-create-group": "true",
+          "awslogs-group": "/ecs/pairup-service",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    }
+  ],
+  "family": "pairup-task-definition",
+  "taskRoleArn": "arn:aws:iam::302504774517:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::302504774517:role/ecsTaskExecutionRole",
+  "networkMode": "awsvpc",
+  "volumes": [],
+  "placementConstraints": [],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "512",
+  "memory": "1024",
+  "runtimePlatform": {
+    "cpuArchitecture": "ARM64",
+    "operatingSystemFamily": "LINUX"
+  },
+  "tags": []
+}
