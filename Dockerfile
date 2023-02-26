@@ -21,5 +21,5 @@ FROM alpine
 
 COPY --from=golang-builder /usr/bin/pairup /usr/bin/pairup
 
-EXPOSE 8080
+EXPOSE 80
 ENTRYPOINT ["/usr/bin/pairup"]

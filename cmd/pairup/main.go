@@ -14,7 +14,7 @@ func main() {
 			"message": "healthy",
 		})
 	})
-	if err := r.Run(":8080"); err != nil {
+	if err := r.Run(":80"); err != nil {
 		panic(err)
 	}
 }
