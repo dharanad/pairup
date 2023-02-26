@@ -1,5 +1,5 @@
 # Stage #1 Build project binary
-FROM golang:1.19-alpine AS golang-builder
+FROM golang:1.20-alpine AS golang-builder
 
 ARG GOPROXY
 ENV GOPROXY ${GOPROXY:-direct}
@@ -12,9 +12,9 @@ ENV BUILD_DIR ${GOPATH}/src/${PACKAGE}
 COPY . ${BUILD_DIR}
 WORKDIR ${BUILD_DIR}
 
-RUN apk --no-cache add build-base git \
-    && make all \
-    && cp pairup /usr/bin/pairup
+RUN apk --no-cache add build-base git
+RUN make all
+RUN cp pairup /usr/bin/pairup
 
 # Stage #2
 FROM alpine
